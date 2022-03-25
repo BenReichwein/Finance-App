@@ -1,7 +1,8 @@
 var moment = require('moment');
 
-var generateMessage = (from, room, text) => {
+var generateMessage = (role, from, room, text) => {
     return {
+        role,
         from,
         room,
         text,

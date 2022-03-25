@@ -8,11 +8,11 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import WithAuth from './middleware/with-auth'
 
-import Chat from './pages/Chat'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import Chat from './components/Chat'
 // This is where we combine the react redux base our application
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -23,7 +23,6 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-        {/* <Chat/> */}
         <React.StrictMode>
           <Routes>
             <Route path="/login" exact element={<Login/>} />
@@ -31,6 +30,7 @@ ReactDOM.render(
             <Route path="/" exact element={
               <WithAuth>
                 <Home/>
+                <Chat/>
               </WithAuth>
             }/>
             <Route path="/profile" element={

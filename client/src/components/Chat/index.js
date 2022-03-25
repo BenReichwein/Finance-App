@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SocketIOClient from 'socket.io-client'
 import moment from 'moment'
-import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -10,30 +9,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import SendIcon from '@material-ui/icons/Send';
-import { Button, createStyles } from '@mui/material';
+import { Button } from '@mui/material';
+import { connect } from 'react-redux';
 
-const styles = theme => createStyles({
-    position: {
-        width: '30vw',
-        position: 'absolute',
-        right: 5,
-        top: 5,
-    },
-    chatSection: {
-        height: '95vh'
-    },
-    headBG: {
-        backgroundColor: '#e0e0e0'
-    },
-    borderRight500: {
-        borderRight: '1px solid #e0e0e0'
-    },
-    messageArea: {
-        height: '85vh',
-        width: '100%',
-        overflowY: 'auto'
-    },
-});
+import { getUserInfo } from '../../actions';
 
 
 class Chat extends Component {
@@ -56,9 +35,11 @@ class Chat extends Component {
         this.socket.emit('leave');
     }
 
-	componentDidMount() {
+	componentDidMount = async () => {
+        await this.props.getUserInfo()
+        const { username, role } = this.props.user
 		const scopeThis = this;
-		this.socket.emit('join', {name: 'Benny', role: 'default'}, function (err) {
+		this.socket.emit('join', { username, role }, function (err) {
             if (err) {
                 this.props.history.push('/');
             }
@@ -116,12 +97,20 @@ class Chat extends Component {
 
 
     render() {
-        const {classes} = this.props
         return (
-            <Box container className={classes.position}>
-            <Grid container component={Paper} className={classes.chatSection}>
+            <Box container style={{
+                width: '30vw',
+                position: 'absolute',
+                right: 5,
+                top: 5,
+            }}>
+            <Grid container component={Paper} style={{height: '95vh'}}>
                 <Grid item xs={9}>
-                    <List className={classes.messageArea}>
+                    <List style={{
+                        height: '85vh',
+                        width: '100%',
+                        overflowY: 'auto'
+                    }}>
                         {
                             this.state.messages.map((element, index) => {
                                 const roleStyle = {
@@ -151,7 +140,7 @@ class Chat extends Component {
                             )})	
                         }
                     </List>
-                    <Grid container fullWidth style={{padding: '1px'}}>
+                    <Grid container style={{padding: '1px'}}>
                         <Grid item xs={11}>
                             <TextField 
                             onKeyDown={this.onKeyDown}
@@ -159,7 +148,8 @@ class Chat extends Component {
                             onChange={this.handleChange}
                             variant="outlined" 
                             label="Message" 
-                            fullWidth />
+                            fullWidth
+                            />
                         </Grid>
                         <Grid xs={1}>
                             <Button
@@ -179,4 +169,11 @@ class Chat extends Component {
     }
 }
 
-export default withStyles(styles, { withTheme: true})(Chat)
+const mapStateToProps = (state) => {
+    return {user: state.user}
+}
+
+export default connect(
+    mapStateToProps,
+    { getUserInfo }
+  )(Chat);

@@ -1,11 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
-    GET_UID
+    USER_INFO
 } from '../actions/types'
 
 export default (state = {userId: null,username: null}, action) => {
     switch (action.type) {
-        case GET_UID:
+        case USER_INFO:
             return action.payload;
         default:
             return state;

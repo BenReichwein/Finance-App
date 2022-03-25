@@ -3,14 +3,14 @@ class Users {
         this.users = [];
     }
 
-    addUser(id, role, name, room) {
-        var user = { id, role, name, room };
+    addUser(id, role, username, room) {
+        const user = { id, role, username, room };
         this.users.push(user);
         return user;
     }
 
     removeUser(id) {
-        var user = this.getUser(id);
+        const user = this.getUser(id);
 
         if(user){
             this.users = this.users.filter(user => user.id !== id);
@@ -24,8 +24,8 @@ class Users {
     }
 
     getUserList(room) {
-        var users = this.users.filter((user) => user.room === room);
-        var namesArr = users.map(user => user.name);
+        const users = this.users.filter((user) => user.room === room);
+        const namesArr = users.map(user => user.username);
         return namesArr
     }
 

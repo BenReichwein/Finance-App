@@ -1,2 +1,2 @@
 export const LOAD_PROFILE = 'LOAD_PROFILE'
-export const GET_UID = 'GET_UID'
+export const USER_INFO = 'USER_INFO'

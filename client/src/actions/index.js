@@ -2,7 +2,7 @@ import api from './api'
 import Cookies from 'universal-cookie';
 import {
     LOAD_PROFILE,
-    GET_UID,
+    USER_INFO,
 } from './types';
 const cookies = new Cookies();
 //
@@ -55,9 +55,9 @@ export const loadProfile = () => async (dispatch) => {
 };
 // Get user info from authentication
 export const getUserInfo = () => async (dispatch) => {
-  const response = await api.get(`user/getUserInfo`,{
+  const response = await api.get(`user/get-user-info`,{
     params: {token: cookies.get('token')}
   })
 
-  dispatch({ type: GET_UID, payload: response.data});
+  dispatch({ type: USER_INFO, payload: response.data});
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SocketIOClient from 'socket.io-client'
 import moment from 'moment'
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
@@ -98,13 +97,18 @@ class Chat extends Component {
 
     render() {
         return (
-            <Box container style={{
+            <Box 
+            container 
+            boxShadow={3} 
+            style={{
                 width: '30vw',
                 position: 'absolute',
                 right: 5,
-                top: 5,
+                top: 10,
+                borderRadius: 7,
+                backgroundColor: 'rgba(192, 168, 200, 0.6)',
             }}>
-            <Grid container component={Paper} style={{height: '95vh'}}>
+            <Grid container sx={{height: '95vh'}}>
                 <Grid item xs={9}>
                     <List style={{
                         height: '85vh',

@@ -7,6 +7,8 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 import WithAuth from './middleware/with-auth'
+import ThemeConfig from './theme';
+import GlobalStyles from './theme/globalStyles';
 
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -21,26 +23,31 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-        <React.StrictMode>
-          <Routes>
-            <Route path="/login" exact element={<Login/>} />
-            <Route path="/register" exact element={<Register/>} />
-            <Route path="/" exact element={
-              <WithAuth>
-                <Home/>
-                <Chat/>
-              </WithAuth>
-            }/>
-            <Route path="/profile" element={
-              <WithAuth>
-                <Profile/>
-              </WithAuth>
-            } />
-          </Routes>
-        </React.StrictMode>
-      </BrowserRouter>
-  </Provider>,
+  <ThemeConfig>
+  <GlobalStyles />
+    <Provider store={store}>
+      <BrowserRouter>
+          <React.StrictMode>
+            <Routes>
+              <Route path="/login" exact element={<Login/>} />
+              <Route path="/register" exact element={<Register/>} />
+              <Route path="/" exact element={
+                <div style={{width: '65vw'}}>
+                <WithAuth>
+                  <Home/>
+                  <Chat/>
+                </WithAuth>
+                </div>
+              }/>
+              <Route path="/profile" element={
+                <WithAuth>
+                  <Profile/>
+                </WithAuth>
+              } />
+            </Routes>
+          </React.StrictMode>
+        </BrowserRouter>
+    </Provider>
+  </ThemeConfig>,
   document.getElementById('root')
 );

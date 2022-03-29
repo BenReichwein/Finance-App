@@ -27,27 +27,30 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: '#DD8BE0',
-  light: '#D276D6',
-  main: '#D73EDD',
-  dark: '#D8502F',
-  darker: '#C33918',
+  lighter: '#FEC95D',
+  light: '#FBBB39',
+  main: '#F7A601',
+  dark: '#DA9200',
+  darker: '#BD7F02',
+  opacity: 'rgba(247,166,1,0.65)',
   contrastText: '#fff'
 };
 const SECONDARY = {
-  lighter: '#F38065',
-  light: '#F16D4E',
-  main: '#EC5C3A',
-  dark: '#DF4E2C',
-  darker: '#D74320',
+  lighter: '#CAF0FE',
+  light: '#AFE8FE',
+  main: '#8DE0FF',
+  dark: '#60BDDF',
+  darker: '#3F9FC1',
+  opacity: 'rgba(141,224,255,0.65)',
   contrastText: '#fff'
 };
 const TERTIARY = {
-  lighter: '#8B97DA',
-  light: '#7986CE',
-  main: '#6775CB',
-  dark: '#5462B7',
-  darker: '#4453A8',
+  lighter: '#828C97',
+  light: '#5E6A76',
+  main: '#38424D',
+  dark: '#29313B',
+  darker: '#171E26',
+  opacity: 'rgba(56,66,77,0.65)',
   contrastText: '#fff'
 };
 const INFO = {
@@ -112,7 +115,7 @@ const palette = {
   gradients: GRADIENTS,
   chart: CHART_COLORS,
   divider: GREY[500_24],
-  text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
+  text: { primary: GREY[200], secondary: GREY[500], disabled: GREY[600] },
   background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
   action: {
     active: GREY[600],

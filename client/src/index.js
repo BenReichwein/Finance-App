@@ -10,7 +10,7 @@ import WithAuth from './middleware/with-auth'
 import ThemeConfig from './theme';
 import GlobalStyles from './theme/globalStyles';
 
-import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
@@ -34,7 +34,7 @@ ReactDOM.render(
               <Route path="/" exact element={
                 <div style={{width: '65vw'}}>
                 <WithAuth>
-                  <Home/>
+                  <Dashboard/>
                   <Chat/>
                 </WithAuth>
                 </div>

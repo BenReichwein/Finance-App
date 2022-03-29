@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import JobSection from '../../components/JobSection';
+import GamblingSection from '../../components/GamblingSection';
 
-export default class Home extends Component {
+export default class Dashboard extends Component {
   render() {
     return (
       <Grid 
@@ -14,7 +15,7 @@ export default class Home extends Component {
           <JobSection />
         </Grid>
         <Grid item sm={4} md={3}>
-          <JobSection />
+          <GamblingSection />
         </Grid>
         <Grid item sm={4} md={3}>
           <JobSection />

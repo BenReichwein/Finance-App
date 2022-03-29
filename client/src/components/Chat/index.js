@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import SocketIOClient from 'socket.io-client'
 import moment from 'moment'
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { TextField, Grid, Box, List, ListItem, ListItemText } from '@mui/material';
 import SendIcon from '@material-ui/icons/Send';
 import { Button } from '@mui/material';
 import { connect } from 'react-redux';
 
-import { getUserInfo } from '../../actions';
+import { getUserInfo } from '../../actions'
 
 
 class Chat extends Component {
@@ -106,7 +101,7 @@ class Chat extends Component {
                 right: 5,
                 top: 10,
                 borderRadius: 7,
-                backgroundColor: 'rgba(192, 168, 200, 0.6)',
+                backgroundColor: 'rgba(56,66,77,0.65)'
             }}>
             <Grid container sx={{height: '95vh'}}>
                 <Grid item xs={9}>
@@ -119,7 +114,7 @@ class Chat extends Component {
                             this.state.messages.map((element, index) => {
                                 const roleStyle = {
                                     color: element.role === "server" ? "#9c9c9c" :
-                                    element.role === "default" ? "#5D6679" : 
+                                    element.role === "default" ? "#B2D6FF" : 
                                     element.role === "support" ? "#214EC4" :
                                     element.role === "admin" ? "#EB7154" :
                                     element.role === "founder" ? "#21C446" : 'red'
@@ -153,6 +148,7 @@ class Chat extends Component {
                             variant="outlined" 
                             label="Message" 
                             fullWidth
+                            inputStyle={{ color: 'white' }} 
                             />
                         </Grid>
                         <Grid xs={1}>

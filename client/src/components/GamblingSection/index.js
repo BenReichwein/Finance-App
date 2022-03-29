@@ -29,15 +29,15 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   )} 100%)`
 }));
 
-export default function JobSection() {
+export default function GamblingSection() {
   return (
     <RootStyle>
       <IconWrapperStyle>
         <MoneyIcon/>
       </IconWrapperStyle>
-      <Typography variant="h5">Jobs</Typography>
+      <Typography variant="h5">Gambling</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
-        Make some legit money
+        Gamble against friends
       </Typography>
     </RootStyle>
   );

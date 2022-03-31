@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
-import WithAuth from './middleware/with-auth'
+import WithAuth from './middleware/WithAuth'
 import ThemeConfig from './theme';
 import GlobalStyles from './theme/globalStyles';
 

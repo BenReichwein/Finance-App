@@ -1,7 +1,7 @@
 import { alpha, styled } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
 
-import MoneyIcon from '@material-ui/icons/AttachMoney';
+import CasinoIcon from '@material-ui/icons/Casino';
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 4,
@@ -10,7 +10,8 @@ const RootStyle = styled(Card)(({ theme }) => ({
   borderRadius: '15px 50px',
   color: theme.palette.primary.contrastText,
   border: `3px solid ${theme.palette.secondary.main}`,
-  backgroundColor: theme.palette.tertiary.opacity
+  backgroundColor: theme.palette.tertiary.opacity,
+  cursor: 'grab'
 }));
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
@@ -29,11 +30,11 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   )} 100%)`
 }));
 
-export default function GamblingSection() {
+export function GamblingSection({onClick}) {
   return (
-    <RootStyle>
+    <RootStyle onClick={onClick}>
       <IconWrapperStyle>
-        <MoneyIcon/>
+        <CasinoIcon/>
       </IconWrapperStyle>
       <Typography variant="h5">Gambling</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>

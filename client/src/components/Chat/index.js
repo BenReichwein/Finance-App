@@ -139,7 +139,7 @@ class Chat extends Component {
                             )})	
                         }
                     </List>
-                    <Grid container style={{padding: '1px'}}>
+                    <Grid container sx={{padding: '1px'}}>
                         <Grid item xs={11}>
                             <TextField 
                             onKeyDown={this.onKeyDown}

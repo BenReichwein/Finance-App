@@ -1,7 +1,7 @@
 import { alpha, styled } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
 
-import MoneyIcon from '@material-ui/icons/AttachMoney';
+import StarIcon from '@material-ui/icons/Stars';
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 4,
@@ -10,7 +10,8 @@ const RootStyle = styled(Card)(({ theme }) => ({
   borderRadius: '15px 50px',
   color: theme.palette.primary.contrastText,
   border: `3px solid ${theme.palette.secondary.main}`,
-  backgroundColor: theme.palette.tertiary.opacity
+  backgroundColor: theme.palette.tertiary.opacity,
+  cursor: 'grab'
 }));
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
@@ -29,15 +30,15 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   )} 100%)`
 }));
 
-export default function JobSection() {
+export function TreasureSection({onClick}) {
   return (
-    <RootStyle>
+    <RootStyle onClick={onClick}>
       <IconWrapperStyle>
-        <MoneyIcon/>
+        <StarIcon/>
       </IconWrapperStyle>
-      <Typography variant="h5">Jobs</Typography>
+      <Typography variant="h5">Treasure</Typography>
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
-        Make some legit money
+        Open some treasure chests
       </Typography>
     </RootStyle>
   );

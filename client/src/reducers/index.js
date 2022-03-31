@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import profileReducer from './profile-reducer'
-import userReducer from './user-reducer';
+import profileReducer from './profileReducer'
+import userReducer from './userReducer';
 
 // In redux this is where we combine the states
 
